@@ -1,0 +1,36 @@
+#{extends 'main.html' /}
+#{set title:'Turmas' /}
+
+<style>
+	body {
+		background-image: none;
+		background-color: #020a2c;
+		color: white;
+	}
+</style>
+
+<br>
+
+<main class="page-list">
+	<h4 class="text-center">${turma.nome}</h4>
+	<br>
+
+	<div class="text-center">
+		<table class="table md-600px">
+			<thead>
+				<tr>
+					<th scope="col">Nome</th>
+					<th scope="col">Matricula</th>
+				</tr>
+			</thead>
+			<tbody>
+				#{list items:alunos, as:'a'}
+				<tr>
+					<td>${a.nome}</td>
+					<td>${a.matricula}</td>
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+	</div>
+</main>

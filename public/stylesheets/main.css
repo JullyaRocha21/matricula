@@ -1,0 +1,95 @@
+body {
+	background-image: url('/public/images/fundo.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: rgb(255, 128, 0);
+	min-height: 100vh;
+}
+
+.page-list {
+	background-image: none;
+	background-color: #020a2c;
+	color: white;
+}
+
+.navbar {
+	background-color: rgb(255, 255, 128);
+	color: #ff6347;
+}
+
+.navbar-brand img {
+	border-radius: 50%;
+}
+
+.nav-link {
+	color: #ff6347;
+	width: max-content;
+}
+
+.nav-item {
+	width: max-content;
+}
+
+.nav-link:hover {
+	color: #ffff00;
+}
+
+.form-control {
+	border-color: #ff6347;
+}
+
+.btn-primary {
+	background-color: #ff6347;
+	border-color: #ff6347;
+	color: white;
+}
+
+.btn-primary:hover {
+	background-color: #ff4500;
+}
+
+.form-inline div {
+	display: flex;
+	align-items: center;
+}
+
+.table {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.table td:hover {
+	background-color: #aaa;
+	transition: all ease-in-out .3s;
+}
+
+.alert {
+	position: fixed;
+	top: 5rem;
+	z-index: 9;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: all ease-in .3s;
+	animation: desaparecer 3s linear;
+	opacity: 0;
+	pointer-events: none;
+}
+
+@keyframes desaparecer {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: translate(-50%, );
+
+	}
+}
+
+.error{
+	color: rgba(209, 0, 0, 0.562);
+	background-color: rgba(255, 0, 0, 0.178);
+	margin: 5px 0;
+	border-radius: 5px;
+}

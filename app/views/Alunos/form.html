@@ -1,0 +1,98 @@
+#{extends 'main.html' /}
+
+#{if a}
+#{set title:'Edição de Dados!' /}
+#{/if}
+#{else}
+#{set title:'Matricula-se!' /}
+#{/else}
+<br>
+
+<h4 class="text-center">O Curso Lógica agradece a preferência!!!</h4>
+
+<div class="container mt-4 d-flex justify-content-start">
+	<div class="card p-4" style="width: 600px;">
+
+		<h5>Preencha os dados abaixo para o aluno ser matriculado:</h5>
+
+
+
+		<form action="@{Alunos.salvar}">
+
+			<input type="hidden" id="idNivel" name="a.id" value="${a?.id}" />
+
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="inputName">Nome completo</label>
+					<span class="error">#{error 'a.nome' /}</span>
+					<input type="text" class="form-control" id="inputName" placeholder="Nome" name="a.nome"
+						value="${a?.nome}" />
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="inputEmail4">Email</label>
+					<span class="error">#{error 'a.email' /}</span>
+					<input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="a.email"
+						value="${a?.email}" />
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="inputMatricula">Matricula</label>
+					<span class="error">#{error 'a.matricula' /}</span>
+					<input type="integer" class="form-control" id="inputMatricula" placeholder="Matricula"
+						name="a.matricula" value="${a?.matricula}" />
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="inputMatricula">Senha</label>
+					<span class="error">#{error 'a.senha' /}</span>
+					<input type="password" class="form-control" id="inputSenha" placeholder="Senha" name="a.senha" />
+				</div>
+			</div>
+
+			<label>Nivel</label><br>
+			<select class="form-select" aria-label="Default select example" id="nivel">
+				#{list items:niveis, as:'n'}
+				<option #{if n==a?.turma?.nivel} #{/if} value="${n}">${n}</option>
+				#{/list}
+			</select><br><br>
+
+			<label>Turma</label><br>
+			<span class="error">#{error 'a.turma' /}</span>
+			<select class="form-select" aria-label="Default select example" name="a.turma.id" id="turmas">
+				#{list items:turmas, as:'t'}
+				<option #{if t==a?.turma?.nome} selected #{/if} value="${t.id}">${t.nome}</option>
+				#{/list}
+			</select><br><br>
+
+			<div class="form-group">
+				<label for="inputAddress">Endereço</label>
+				<span class="error">#{error 'a.endereco' /}</span>
+				<input type="text" class="form-control" id="inputAddress" placeholder="Ex:Rua dos... , nº 0"
+					name="a.endereco" value="${a?.endereco}" />
+			</div>
+
+			<div class="form-row justify-content-space-between">
+				<div class="form-group col-md-4">
+					<label for="inputCity">Cidade</label>
+					<span class="error">#{error 'a.cidade' /}</span>
+					<input type="text" class="form-control" id="inputCity" placeholder="Ex:Natal" name="a.cidade"
+						value="${a?.cidade}" />
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="inputEstado">Estado</label>
+					<span class="error">#{error 'a.estado' /}</span>
+					<input type="text" class="form-control" id="inputEstado" placeholder="Ex:RN" name="a.estado"
+						value="${a?.estado}" />
+				</div>
+			</div>
+
+			<div class="d-flex justify-content-center">
+				<button type="submit" class="btn btn-primary">Cadastrar</button>
+			</div>
+
+		</form>
+	</div>
+</div>
+<br><br><br>
